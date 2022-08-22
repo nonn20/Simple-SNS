@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<form th:action="@{/shupo}" method="post" th:object="${toukou}">
+			<ul th:if="${validationError}" th:each="error : ${validationError}">
+					<li th:text="${error}"></li>
+			</ul>
+			<h4>名前</h4>
+			<input type="text" th:name="name" th:id="name"  th:value="*{name}">
+			<br>
+			<h4>メッセージ</h4>
+			<input type="text" th:name="content" th:id="content" th:value="*{content}">
+			<button type="submit">投稿</button>
+		</form>
+		<a th:href="home">ホームへ戻る</a>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th ="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+	<body>
+		--ここはホームです
+		<h3>
+			<a th:href ="toukou1">投稿</a>
+		</h3>
+		<h3>
+			<a th:href ="mypage">マイページ</a>
+		</h3>
+		
+		<div th:each="toukou:${toukou1}">
+			<p>[[${toukou[0]}]]: [[${toukou[1]}]]</p>
+			
+		</div>
+	</body>
+</html>
