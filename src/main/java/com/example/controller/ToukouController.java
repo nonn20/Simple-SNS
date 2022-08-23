@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.config.BeanTest;
 import com.example.entity.Toukou;
 import com.example.repository.ToukouRepository;
 
@@ -27,6 +28,9 @@ public class ToukouController {
 	public String toukou() {
 		return "toukou";
 	}
+	
+	@Autowired
+	BeanTest bean;
 	
 	@Autowired
 	ToukouRepository repository;
@@ -45,6 +49,7 @@ public class ToukouController {
                 errorList.add(error.getDefaultMessage());
             }
             model.addAttribute("validationError", errorList);
+            model.addAttribute("bean", bean.inclement().getcount());
             return "toukou";
 		}
 		/*データベースに登録*/

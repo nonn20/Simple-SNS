@@ -5,12 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.config.BeanTest;
 import com.example.repository.ToukouRepository;
 
 @Controller
 public class PathController {
 	@Autowired
 	ToukouRepository repository;
+	
+	@Autowired
+	BeanTest bean;
 	
 	@RequestMapping("home")
 	public String goHome(Model model) {
@@ -26,6 +30,7 @@ public class PathController {
 			i--;
 		}
 		
+		model.addAttribute("bean", bean.inclement().getcount());
 		model.addAttribute("toukou1",toukouList);
 		return "home";
 	}
